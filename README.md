@@ -1,5 +1,4 @@
-# LOOO Electronics & Computers - Authentication System
-
+# LOOO Electronics & Computers Online Store System
 **PHP Authentication Integration**
 - Login system with database storage
 - User registration with validation
