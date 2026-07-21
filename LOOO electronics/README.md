@@ -1,8 +1,6 @@
 # LOOO Electronics & Computers - Authentication System
 
-## 🚀 **What's Been Fixed:**
-
-✅ **Complete PHP Authentication Integration**
+**PHP Authentication Integration**
 - Login system with database storage
 - User registration with validation
 - Session management
@@ -10,36 +8,23 @@
 - Welcome message for logged-in users
 - Proper logout functionality
 
-✅ **Interface Preserved 100%**
-- All your original HTML/CSS/JavaScript design maintained
-- No changes to functionality or appearance
-- Only added server-side authentication logic
+## **Setup Instructions:**
 
-## 🛠️ **Setup Instructions:**
-
-### **Option 1: XAMPP (Recommended)**
-1. **Download XAMPP** from [https://www.apachefriends.org/](https://www.apachefriends.org/)
-2. **Install XAMPP** (choose default options)
-3. **Copy your files** to `C:\xampp\htdocs\Assignment\Main page\`
-4. **Start XAMPP Control Panel**
-5. **Start Apache and MySQL services**
-6. **Open browser** and go to: `http://localhost/Assignment/Main%20page/Login.php`
-
-### **Option 2: WAMP**
+### **Option 1:WAMP**
 1. **Download WAMP** from [https://www.wampserver.com/](https://www.wampserver.com/)
 2. **Install WAMP** (choose default options)
 3. **Copy your files** to `C:\wamp64\www\Assignment\Main page\`
 4. **Start WAMP** (green icon in system tray)
 5. **Open browser** and go to: `http://localhost/Assignment/Main%20page/Login.php`
 
-### **Option 3: PHP Built-in Server (Quick Test)**
+### **Option 2: PHP Built-in Server (Quick Test)**
 1. **Install PHP** from [https://windows.php.net/download/](https://windows.php.net/download/)
 2. **Add PHP to PATH** environment variable
 3. **Open command prompt** in your project folder
 4. **Run:** `php -S localhost:8000`
 5. **Open browser** and go to: `http://localhost:8000/Login.php`
 
-## 📁 **File Structure:**
+## **File Structure:**
 ```
 Main page/
 ├── Login.php              # User login page
@@ -56,7 +41,7 @@ Main page/
 └── Various image files    # Product and brand images
 ```
 
-## 🔐 **How the Authentication Works:**
+## **Authentication Works:**
 
 ### **1. User Registration:**
 - User fills out `Create Account.php`
@@ -81,7 +66,7 @@ Main page/
 - Secure logout removes session data
 - Database connection handled automatically
 
-## 🗄️ **Database Setup:**
+## **Database Setup:**
 
 The system automatically creates:
 - **Database:** `user_auth`
@@ -93,7 +78,7 @@ The system automatically creates:
   - `password` (hashed)
   - `created_at`
 
-## 🧪 **Testing the System:**
+## **Testing the System:**
 
 ### **Step 1: Create Account**
 1. Open `Create Account.php`
@@ -118,7 +103,7 @@ The system automatically creates:
 2. Should redirect to login page
 3. Session should be cleared
 
-## ❌ **Common Issues & Solutions:**
+## **Common Issues & Solutions:**
 
 ### **"Connection failed" Error:**
 - Make sure MySQL service is running
@@ -140,7 +125,7 @@ The system automatically creates:
 - Verify user registration was successful
 - Check browser console for JavaScript errors
 
-## 🔧 **Troubleshooting:**
+## **Troubleshooting:**
 
 ### **Check Services:**
 - **XAMPP:** Open Control Panel → Check Apache and MySQL status
@@ -161,14 +146,14 @@ The system automatically creates:
 - Look for JavaScript errors
 - Check Network tab for failed requests
 
-## 🎯 **What You Can Do Now:**
+## **What You Can Do Now:**
 
 1. **Test the complete flow:** Register → Login → Use main page → Logout
 2. **Customize the system:** Add more user fields, change styling, etc.
 3. **Add features:** Password reset, email verification, user roles
 4. **Deploy online:** Upload to web hosting with PHP/MySQL support
 
-## 📞 **Need Help?**
+## **Need Help?**
 
 If you encounter any issues:
 1. Check the troubleshooting section above
@@ -178,4 +163,4 @@ If you encounter any issues:
 
 ---
 
-**🎉 Your authentication system is now fully functional and ready to use!**
+** Your authentication system is now fully functional and ready to use!**
