@@ -1,4 +1,7 @@
 # LOOO Electronics & Computers Online Store System
+
+UECS2094/UECS2194 Web Application Development
+
 **PHP Authentication Integration**
 - Login system with database storage
 - User registration with validation
@@ -159,6 +162,9 @@ If you encounter any issues:
 2. Verify all services are running
 3. Check file paths and permissions
 4. Look for error messages in browser console
+
+## **License**
+This project for education purpose only
 
 ---
 
