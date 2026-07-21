@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOOO - Support Services</title>
+    <link rel="stylesheet" href="site-pages.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <a class="site-logo" href="main page.php" aria-label="LOOO home"><img src="logo.png" alt="LOOO Logo"></a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <div class="nav-item"><a href="Products.html">Products</a><div class="dropdown-menu"><a href="Products.html?brand=Acer">Acer</a><a href="Products.html?brand=Asus">Asus</a><a href="Products.html?brand=Dell">Dell</a><a href="Products.html?brand=HP">HP</a><a href="Products.html?brand=Lenovo">Lenovo</a><a href="Products.html?brand=MSI">MSI</a></div></div>
+                <div class="nav-item"><a class="active" href="Support Services.html" aria-current="page">Services</a><div class="dropdown-menu"><a href="Customer Services.php">Customer Services</a><a href="Support Services.html">Support Services</a></div></div>
+                <div class="nav-item"><a href="Extend Device Warranty.php">Support</a><div class="dropdown-menu"><a href="Extend Device Warranty.php">Extend Device Warranty</a><a href="Register Products Services.html">Register Products &amp; Services</a></div></div>
+                <div class="nav-item"><a href="rewards.html">Deals</a><div class="dropdown-menu"><a href="rewards.html">My Rewards</a><a href="Student Discounts.html">Student Discounts</a></div></div>
+            </nav>
+            <div class="header-actions"><a class="login-link" href="Login.php">Login / Sign in</a><a class="icon-link" href="rewards.html" aria-label="Rewards">🎁</a><a class="icon-link" href="Cart.html" aria-label="Cart">🛒</a></div>
+        </div>
+        <div class="header-search"><a href="Products.html"><span>What are you looking for?</span><span aria-hidden="true">⌕</span></a></div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="eyebrow">Support Services</div>
+            <h1>Keep every device working at its best</h1>
+            <p>From setup and diagnostics to repair guidance, LOOO support services help you get more from your technology.</p>
+            <div class="hero-actions"><a class="primary-btn" href="#supportRequest">Request technical support</a><a class="secondary-btn" href="Register Products Services.html">Register a product</a></div>
+        </section>
+
+        <section class="page-section">
+            <div class="section-heading"><h2>Technical help for every stage</h2><p>Choose support that matches the device and the problem.</p></div>
+            <div class="card-grid">
+                <article class="info-card"><div class="card-icon" aria-hidden="true">01</div><h3>Device setup</h3><p>Guidance for initial setup, updates, account configuration and transferring essential files.</p></article>
+                <article class="info-card"><div class="card-icon" aria-hidden="true">02</div><h3>Diagnostics</h3><p>Step-by-step checks for performance, connectivity, display, power and software concerns.</p></article>
+                <article class="info-card"><div class="card-icon" aria-hidden="true">03</div><h3>Repair support</h3><p>Help confirming warranty coverage, preparing a device and choosing the right repair route.</p></article>
+                <article class="info-card"><div class="card-icon" aria-hidden="true">04</div><h3>Software assistance</h3><p>Support with system updates, drivers, security settings and common application problems.</p></article>
+                <article class="info-card"><div class="card-icon" aria-hidden="true">05</div><h3>Business device care</h3><p>Coordinated help for teams managing several laptops, desktops, displays or accessories.</p></article>
+                <article class="info-card"><div class="card-icon" aria-hidden="true">06</div><h3>Warranty guidance</h3><p>Check next steps for a covered issue or explore an extended protection plan.</p></article>
+            </div>
+        </section>
+
+        <section class="page-section alt">
+            <div class="section-inner">
+                <div class="section-heading"><h2>How support works</h2><p>A simple path from the first question to the right resolution.</p></div>
+                <div class="steps"><div class="step"><h3>Describe the device</h3><p>Share the brand, model, serial number and the symptoms you are seeing.</p></div><div class="step"><h3>Try guided checks</h3><p>Follow the recommended troubleshooting steps with your data and settings in mind.</p></div><div class="step"><h3>Choose the next step</h3><p>Continue with self-service guidance, warranty support or a repair request.</p></div></div>
+            </div>
+        </section>
+
+        <section class="page-section" id="supportRequest">
+            <div class="split-layout">
+                <div class="split-copy"><div class="eyebrow">Technical request</div><h2>Give the team a clear starting point</h2><p>Providing the device details and symptoms helps route the request correctly.</p><ul class="check-list"><li>Back up important files before repair work</li><li>Never include account passwords in the message</li><li>Keep the device serial number nearby</li></ul></div>
+                <form class="form-card" id="supportServiceForm">
+                    <h2>Request support</h2><p class="form-intro">Describe the device and the issue you need help with.</p>
+                    <div class="form-grid">
+                        <div class="form-group"><label for="supportName">Full name</label><input id="supportName" name="supportName" required autocomplete="name"></div>
+                        <div class="form-group"><label for="supportEmail">Email address</label><input id="supportEmail" name="supportEmail" type="email" required autocomplete="email"></div>
+                        <div class="form-group"><label for="supportPhone">Phone number</label><input id="supportPhone" name="supportPhone" type="tel" required autocomplete="tel"></div>
+                        <div class="form-group"><label for="supportOrganization">Organization</label><input id="supportOrganization" name="supportOrganization" value="Individual customer" required></div>
+                        <div class="form-group"><label for="deviceBrand">Brand</label><select id="deviceBrand" name="deviceBrand" required><option value="">Choose a brand</option><option>Acer</option><option>Asus</option><option>Dell</option><option>HP</option><option>Lenovo</option><option>MSI</option><option>Other</option></select></div>
+                        <div class="form-group"><label for="deviceModel">Device model</label><input id="deviceModel" name="deviceModel" required></div>
+                        <div class="form-group full"><label for="supportIssue">What is happening?</label><textarea id="supportIssue" name="supportIssue" required placeholder="Include any error message and the troubleshooting already tried"></textarea></div>
+                    </div>
+                    <div class="form-actions"><button class="primary-btn" type="submit">Submit support request</button><a class="secondary-btn" href="Customer Services.php">Customer service</a></div>
+                    <div class="success-message" id="supportSuccess" role="status">Your technical support request has been recorded. Keep the device information available for follow-up.</div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer"><div class="social-icons"><a href="#" aria-label="Facebook"><img src="facebook.png" alt=""></a><a href="#" aria-label="YouTube"><img src="youtube.png" alt=""></a><a href="#" aria-label="WhatsApp"><img src="whatsapp.png" alt=""></a></div><p>LOOO Electronics &amp; Computers</p></footer>
+    <script>
+        document.querySelectorAll('a[href="#"]').forEach((link) => link.addEventListener('click', (event) => event.preventDefault()));
+    </script>
+    <script>
+        document.getElementById('supportServiceForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const form = event.currentTarget;
+            const button = form.querySelector('button[type="submit"]');
+            button.disabled = true;
+            const response = await fetch('api.php?action=technical_support', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: JSON.stringify(Object.fromEntries(new FormData(form))) });
+            const result = await response.json();
+            if (result.success) { const message = document.getElementById('supportSuccess'); message.textContent = result.message; message.classList.add('show'); form.reset(); }
+            else alert(result.message || 'The request could not be submitted.');
+            button.disabled = false;
+        });
+    </script>
+</body>
+</html>

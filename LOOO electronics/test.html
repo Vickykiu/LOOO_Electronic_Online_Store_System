@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Test - LOOO</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .warning { color: #ffc107; }
+        .info { color: #17a2b8; }
+        .btn {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+        .btn:hover { background: #0056b3; }
+        .btn-success { background: #28a745; }
+        .btn-success:hover { background: #1e7e34; }
+        .btn-danger { background: #dc3545; }
+        .btn-danger:hover { background: #c82333; }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status.success { background: #d4edda; border: 1px solid #c3e6cb; }
+        .status.error { background: #f8d7da; border: 1px solid #f5c6cb; }
+        .status.warning { background: #fff3cd; border: 1px solid #ffeaa7; }
+        .status.info { background: #d1ecf1; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>🧪 LOOO System Test</h1>
+    
+    <div class="test-section">
+        <h2>📋 System Overview</h2>
+        <p>This page helps you test if your authentication system is working correctly.</p>
+        <p><strong>Current Status:</strong> <span class="success">✅ Ready for Testing</span></p>
+    </div>
+
+    <div class="test-section">
+        <h2>🔗 Quick Navigation</h2>
+        <p>Use these links to test your system:</p>
+        <a href="Login.php" class="btn">🔐 Test Login Page</a>
+        <a href="Create Account.php" class="btn">📝 Test Registration</a>
+        <a href="main page.php" class="btn">🏠 Test Main Page</a>
+        <a href="logout.php" class="btn btn-danger">🚪 Test Logout</a>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ What Should Work</h2>
+        <ul>
+            <li><strong>Registration:</strong> Create new user accounts</li>
+            <li><strong>Login:</strong> Sign in with registered credentials</li>
+            <li><strong>Main Page:</strong> See personalized content when logged in</li>
+            <li><strong>Logout:</strong> Clear session and return to login</li>
+            <li><strong>Database:</strong> Automatically create tables and store users</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 Testing Steps</h2>
+        <ol>
+            <li><strong>Step 1:</strong> Click "Test Registration" to create an account</li>
+            <li><strong>Step 2:</strong> Click "Test Login Page" to sign in</li>
+            <li><strong>Step 3:</strong> Click "Test Main Page" to see personalized content</li>
+            <li><strong>Step 4:</strong> Click "Test Logout" to sign out</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>⚠️ Common Issues</h2>
+        <div class="status warning">
+            <strong>Database Connection:</strong> Make sure MySQL service is running
+        </div>
+        <div class="status warning">
+            <strong>Web Server:</strong> Make sure Apache/PHP is running
+        </div>
+        <div class="status warning">
+            <strong>File Paths:</strong> Check if all files are in the correct directory
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 Setup Requirements</h2>
+        <ul>
+            <li><strong>XAMPP/WAMP:</strong> Apache + MySQL + PHP</li>
+            <li><strong>PHP Version:</strong> 7.4 or higher</li>
+            <li><strong>MySQL:</strong> 5.7 or higher</li>
+            <li><strong>Browser:</strong> Modern browser with JavaScript enabled</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>📞 Need Help?</h2>
+        <p>If you encounter issues:</p>
+        <ol>
+            <li>Check the README.md file for detailed instructions</li>
+            <li>Verify all services are running (Apache, MySQL)</li>
+            <li>Check browser console for error messages</li>
+            <li>Make sure file permissions are correct</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>🎯 Next Steps</h2>
+        <p>Once everything is working:</p>
+        <ul>
+            <li>Customize the user interface</li>
+            <li>Add more user fields</li>
+            <li>Implement password reset</li>
+            <li>Add user roles and permissions</li>
+            <li>Deploy to web hosting</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h2>🚀 Quick Start</h2>
+        <p><strong>Ready to test?</strong> Start with the registration page:</p>
+        <a href="Create Account.php" class="btn btn-success">🚀 Start Testing Now</a>
+    </div>
+
+    <script>
+        // Simple test to check if JavaScript is working
+        console.log('✅ Test page loaded successfully');
+        
+        // Check if we can access the PHP files
+        fetch('config.php')
+            .then(response => {
+                if (response.ok) {
+                    console.log('✅ PHP files are accessible');
+                } else {
+                    console.log('⚠️ PHP files may not be accessible');
+                }
+            })
+            .catch(error => {
+                console.log('❌ Error accessing PHP files:', error);
+            });
+    </script>
+</body>
+</html>

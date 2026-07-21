@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOOO - Shopping Cart</title>
+    <link rel="stylesheet" href="site-pages.css">
+    <style>
+        body { background: #f8f9fa; }
+        .cart-page { max-width: 1240px; margin: 0 auto; padding: 54px 50px 80px; }
+        .cart-heading { margin-bottom: 30px; display: flex; justify-content: space-between; gap: 20px; align-items: end; }
+        .cart-heading h1 { margin-bottom: 8px; font-size: clamp(34px, 5vw, 48px); }
+        .cart-heading p { color: #666; }
+        .continue-link { color: #007bff; text-decoration: none; font-weight: 700; }
+        .cart-layout { display: grid; grid-template-columns: minmax(0, 1fr) 350px; gap: 30px; align-items: start; }
+        .cart-panel, .summary-card { background: white; border: 1px solid #e8e8e8; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.05); }
+        .cart-panel { overflow: hidden; }
+        .cart-item { padding: 22px; display: grid; grid-template-columns: 120px minmax(0, 1fr) auto; gap: 20px; align-items: center; border-bottom: 1px solid #eee; }
+        .cart-item:last-child { border-bottom: 0; }
+        .item-image { width: 120px; height: 100px; display: flex; align-items: center; justify-content: center; background: white; border: 1px solid #eee; border-radius: 8px; overflow: hidden; }
+        .item-image img { width: 100%; height: 100%; object-fit: contain; }
+        .item-details h2 { margin-bottom: 7px; font-size: 19px; }
+        .unit-price { margin-bottom: 14px; color: #dc3545; font-size: 17px; font-weight: 700; }
+        .item-controls { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+        .quantity-control { display: inline-flex; align-items: center; border: 1px solid #d9d9d9; border-radius: 6px; overflow: hidden; }
+        .quantity-control button { width: 34px; height: 34px; background: #f8f9fa; border: 0; cursor: pointer; font-size: 18px; }
+        .quantity-control span { min-width: 36px; text-align: center; font-weight: 700; }
+        .remove-btn { color: #b02a37; background: transparent; border: 0; cursor: pointer; text-decoration: underline; }
+        .line-total { min-width: 120px; text-align: right; font-size: 18px; font-weight: 800; }
+        .empty-cart { padding: 70px 24px; text-align: center; }
+        .empty-cart .empty-icon { margin-bottom: 14px; font-size: 44px; }
+        .empty-cart h2 { margin-bottom: 8px; }
+        .empty-cart p { margin-bottom: 22px; color: #666; }
+        .summary-card { padding: 26px; position: sticky; top: 20px; }
+        .summary-card h2 { margin-bottom: 22px; }
+        .summary-row { padding: 10px 0; display: flex; justify-content: space-between; gap: 16px; color: #555; }
+        .summary-row.total { margin-top: 10px; padding-top: 18px; color: #111; border-top: 1px solid #ddd; font-size: 20px; font-weight: 800; }
+        .shipping-note { margin: 12px 0 20px; color: #666; font-size: 13px; line-height: 1.5; }
+        .checkout-btn { width: 100%; min-height: 48px; color: white; background: #007bff; border: 0; border-radius: 24px; cursor: pointer; font-size: 16px; font-weight: 800; }
+        .checkout-btn:hover { background: #0056b3; }
+        .checkout-btn:disabled { background: #a9b7c6; cursor: not-allowed; }
+        .suggestions { margin-top: 58px; }
+        .suggestions h2 { margin-bottom: 22px; font-size: 28px; }
+        .suggestion-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+        .suggestion-card { padding: 20px; text-align: center; background: white; border: 2px solid #eee; border-radius: 10px; }
+        .suggestion-card img { width: 100%; height: 150px; object-fit: contain; }
+        .suggestion-card h3 { min-height: 46px; margin: 10px 0 6px; font-size: 17px; }
+        .suggestion-price { margin-bottom: 14px; color: #dc3545; font-weight: 800; }
+        .add-btn { padding: 9px 17px; color: black; background: white; border: 2px solid black; border-radius: 5px; cursor: pointer; font-weight: 700; }
+        .add-btn:hover { color: white; background: black; }
+        @media (max-width: 900px) { .cart-layout { grid-template-columns: 1fr; } .summary-card { position: static; } }
+        @media (max-width: 768px) { .cart-page { padding: 38px 20px 60px; } .cart-heading { align-items: flex-start; flex-direction: column; } .cart-item { grid-template-columns: 90px minmax(0,1fr); } .item-image { width: 90px; height: 85px; } .line-total { grid-column: 2; min-width: 0; text-align: left; } .suggestion-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <a class="site-logo" href="main page.php" aria-label="LOOO home"><img src="logo.png" alt="LOOO Logo"></a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <div class="nav-item"><a href="Products.html">Products</a><div class="dropdown-menu"><a href="Products.html?brand=Acer">Acer</a><a href="Products.html?brand=Asus">Asus</a><a href="Products.html?brand=Dell">Dell</a><a href="Products.html?brand=HP">HP</a><a href="Products.html?brand=Lenovo">Lenovo</a><a href="Products.html?brand=MSI">MSI</a></div></div>
+                <div class="nav-item"><a href="Customer Services.php">Services</a><div class="dropdown-menu"><a href="Customer Services.php">Customer Services</a><a href="Support Services.html">Support Services</a></div></div>
+                <div class="nav-item"><a href="Extend Device Warranty.php">Support</a><div class="dropdown-menu"><a href="Extend Device Warranty.php">Extend Device Warranty</a><a href="Register Products Services.html">Register Products &amp; Services</a></div></div>
+                <div class="nav-item"><a href="rewards.html">Deals</a><div class="dropdown-menu"><a href="rewards.html">My Rewards</a><a href="Student Discounts.html">Student Discounts</a></div></div>
+            </nav>
+            <div class="header-actions"><a class="login-link" href="Login.php">Login / Sign in</a><a class="icon-link" href="rewards.html" aria-label="Rewards">🎁</a><a class="icon-link" href="Cart.html" aria-label="Cart" aria-current="page">🛒</a></div>
+        </div>
+        <div class="header-search"><a href="Products.html"><span>What are you looking for?</span><span aria-hidden="true">⌕</span></a></div>
+    </header>
+
+    <main class="cart-page">
+        <div class="cart-heading"><div><h1>Your Cart</h1><p id="cartItemCount">Review your selected products before checkout.</p></div><a class="continue-link" href="Products.html">← Continue shopping</a></div>
+        <div class="cart-layout">
+            <section class="cart-panel" id="cartItems" aria-label="Cart items"></section>
+            <aside class="summary-card" aria-label="Order summary">
+                <h2>Order Summary</h2>
+                <div class="summary-row"><span>Subtotal</span><strong id="subtotal">RM 0.00</strong></div>
+                <div class="summary-row"><span>Delivery</span><strong id="shipping">RM 0.00</strong></div>
+                <div class="summary-row total"><span>Total</span><span id="total">RM 0.00</span></div>
+                <p class="shipping-note">Delivery is free for orders of RM 500 or more. A RM 25 delivery fee applies below that amount.</p>
+                <button class="checkout-btn" id="checkoutButton" type="button">Proceed to Payment</button>
+            </aside>
+        </div>
+
+        <section class="suggestions" aria-labelledby="suggestionHeading">
+            <h2 id="suggestionHeading">Suggested Add-ons</h2>
+            <div class="suggestion-grid">
+                <article class="suggestion-card"><img src="prism+ x340 pro evo.png" alt="PRISM+ X340 Pro Evo"><h3>PRISM+ X340 Pro Evo</h3><div class="suggestion-price">RM 1,739.00</div><button class="add-btn" type="button" data-product-id="10046">ADD TO CART</button></article>
+                <article class="suggestion-card"><img src="lenovo thinkpad universal usb-c dock.png" alt="Lenovo ThinkPad Universal USB-C Dock"><h3>Lenovo ThinkPad Universal USB-C Dock</h3><div class="suggestion-price">RM 1,099.00</div><button class="add-btn" type="button" data-product-id="10047">ADD TO CART</button></article>
+                <article class="suggestion-card"><img src="acer s1386wh dlp projector.png" alt="Acer S1386WH DLP Projector"><h3>Acer S1386WH DLP Projector</h3><div class="suggestion-price">RM 2,399.00</div><button class="add-btn" type="button" data-product-id="10037">ADD TO CART</button></article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer"><div class="social-icons"><a href="#" aria-label="Facebook"><img src="facebook.png" alt=""></a><a href="#" aria-label="YouTube"><img src="youtube.png" alt=""></a><a href="#" aria-label="WhatsApp"><img src="whatsapp.png" alt=""></a></div><p>LOOO Electronics &amp; Computers</p></footer>
+
+    <script>
+        const CART_KEY = 'loooCart';
+        const CHECKOUT_KEY = 'loooCheckout';
+        const cartItemsElement = document.getElementById('cartItems');
+        const checkoutButton = document.getElementById('checkoutButton');
+        let cartItems = loadCart();
+
+        function loadCart() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
+                return Array.isArray(saved) ? saved.filter((item) => item && item.name && Number(item.price) > 0).map((item) => ({ ...item, quantity: Math.max(1, Number(item.quantity) || 1) })) : [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function saveCart() {
+            localStorage.setItem(CART_KEY, JSON.stringify(cartItems));
+        }
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-MY', { style: 'currency', currency: 'MYR' }).format(amount).replace('MYR', 'RM');
+        }
+
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+        }
+
+        function updateCart() {
+            saveCart();
+            const itemCount = cartItems.reduce((count, item) => count + item.quantity, 0);
+            const subtotal = cartItems.reduce((sum, item) => sum + Number(item.price) * item.quantity, 0);
+            const shipping = subtotal > 0 && subtotal < 500 ? 25 : 0;
+            const total = subtotal + shipping;
+
+            document.getElementById('cartItemCount').textContent = itemCount ? `${itemCount} item${itemCount === 1 ? '' : 's'} in your cart` : 'Your cart is ready when you are.';
+            document.getElementById('subtotal').textContent = formatCurrency(subtotal);
+            document.getElementById('shipping').textContent = shipping ? formatCurrency(shipping) : 'Free';
+            document.getElementById('total').textContent = formatCurrency(total);
+            checkoutButton.disabled = cartItems.length === 0;
+
+            if (!cartItems.length) {
+                cartItemsElement.innerHTML = '<div class="empty-cart"><div class="empty-icon" aria-hidden="true">🛒</div><h2>Your cart is empty</h2><p>Add a product to begin your order.</p><a class="primary-btn" href="Products.html">Browse Products</a></div>';
+                return;
+            }
+
+            cartItemsElement.innerHTML = cartItems.map((item, index) => `
+                <article class="cart-item">
+                    <div class="item-image"><img src="${escapeHtml(item.image || 'logo.png')}" alt="${escapeHtml(item.name)}"></div>
+                    <div class="item-details"><h2>${escapeHtml(item.name)}</h2><div class="unit-price">${formatCurrency(Number(item.price))} each</div><div class="item-controls"><div class="quantity-control" aria-label="Quantity for ${escapeHtml(item.name)}"><button type="button" data-action="decrease" data-index="${index}" aria-label="Decrease quantity">−</button><span>${item.quantity}</span><button type="button" data-action="increase" data-index="${index}" aria-label="Increase quantity">+</button></div><button class="remove-btn" type="button" data-action="remove" data-index="${index}">Remove</button></div></div>
+                    <div class="line-total">${formatCurrency(Number(item.price) * item.quantity)}</div>
+                </article>`).join('');
+        }
+
+        function addToCart(product) {
+            const existing = cartItems.find((item) => item.name === product.name);
+            if (existing) existing.quantity += 1;
+            else cartItems.push({ ...product, quantity: 1 });
+            updateCart();
+        }
+
+        cartItemsElement.addEventListener('click', (event) => {
+            const button = event.target.closest('button[data-action]');
+            if (!button) return;
+            const index = Number(button.dataset.index);
+            if (!cartItems[index]) return;
+            if (button.dataset.action === 'increase') cartItems[index].quantity += 1;
+            if (button.dataset.action === 'decrease') cartItems[index].quantity = Math.max(1, cartItems[index].quantity - 1);
+            if (button.dataset.action === 'remove') cartItems.splice(index, 1);
+            updateCart();
+        });
+
+        document.querySelectorAll('.add-btn').forEach((button) => {
+            button.addEventListener('click', () => addToCart({ name: button.dataset.name, price: Number(button.dataset.price), image: button.dataset.image }));
+        });
+
+        checkoutButton.addEventListener('click', () => {
+            if (!cartItems.length) return;
+            const subtotal = cartItems.reduce((sum, item) => sum + Number(item.price) * item.quantity, 0);
+            const shipping = subtotal < 500 ? 25 : 0;
+            localStorage.setItem(CHECKOUT_KEY, JSON.stringify({ items: cartItems, subtotal, shipping, total: subtotal + shipping }));
+            window.location.href = 'Payment.php';
+        });
+
+        document.querySelectorAll('a[href="#"]').forEach((link) => link.addEventListener('click', (event) => event.preventDefault()));
+        updateCart();
+    </script>
+    <script>
+        (() => {
+            const container = document.getElementById('cartItems');
+            const checkoutButton = document.getElementById('checkoutButton');
+            let databaseItems = [];
+            const money = (amount) => new Intl.NumberFormat('en-MY', { style: 'currency', currency: 'MYR' }).format(amount).replace('MYR', 'RM');
+            const clean = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+
+            function render(summary) {
+                databaseItems = summary.items || [];
+                const count = databaseItems.reduce((total, item) => total + Number(item.quantity), 0);
+                document.getElementById('cartItemCount').textContent = count ? `${count} item${count === 1 ? '' : 's'} in your cart` : 'Your cart is ready when you are.';
+                document.getElementById('subtotal').textContent = money(Number(summary.subtotal || 0));
+                document.getElementById('shipping').textContent = Number(summary.shipping || 0) ? money(Number(summary.shipping)) : 'Free';
+                document.getElementById('total').textContent = money(Number(summary.total || 0));
+                checkoutButton.disabled = databaseItems.length === 0;
+                if (!databaseItems.length) {
+                    container.innerHTML = '<div class="empty-cart"><div class="empty-icon" aria-hidden="true">&#128722;</div><h2>Your cart is empty</h2><p>Add a product to begin your order.</p><a class="primary-btn" href="Products.html">Browse Products</a></div>';
+                    return;
+                }
+                container.innerHTML = databaseItems.map((item) => `<article class="cart-item"><div class="item-image"><img src="${clean(item.image_url || 'logo.png')}" onerror="this.src='logo.png'" alt="${clean(item.name)}"></div><div class="item-details"><h2>${clean(item.name)}</h2><div class="unit-price">${money(Number(item.price))} each</div><div class="item-controls"><div class="quantity-control"><button type="button" data-db-action="decrease" data-cart-id="${item.cart_id}">−</button><span>${item.quantity}</span><button type="button" data-db-action="increase" data-cart-id="${item.cart_id}">+</button></div><button class="remove-btn" type="button" data-db-action="remove" data-cart-id="${item.cart_id}">Remove</button></div></div><div class="line-total">${money(Number(item.price) * Number(item.quantity))}</div></article>`).join('');
+            }
+
+            async function loadDatabaseCart() {
+                localStorage.removeItem('loooCart');
+                localStorage.removeItem('loooCheckout');
+                const response = await fetch('api.php?action=cart', { credentials: 'same-origin' });
+                const result = await response.json();
+                if (result.login_required) {
+                    container.innerHTML = '<div class="empty-cart"><h2>Sign in to view your cart</h2><p>Your saved cart is connected to your account.</p><a class="primary-btn" href="Login.php?return=Cart.html">Login / Sign in</a></div>';
+                    checkoutButton.disabled = true;
+                    return;
+                }
+                if (!response.ok || !result.success) throw new Error(result.message || 'Unable to load the cart.');
+                render(result);
+            }
+
+            container.addEventListener('click', async (event) => {
+                const button = event.target.closest('button[data-db-action]');
+                if (!button) return;
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                const cartId = Number(button.dataset.cartId);
+                const item = databaseItems.find((entry) => Number(entry.cart_id) === cartId);
+                if (!item) return;
+                const action = button.dataset.dbAction;
+                const endpoint = action === 'remove' ? 'cart_remove' : 'cart_update';
+                const quantity = action === 'increase' ? Number(item.quantity) + 1 : Math.max(1, Number(item.quantity) - 1);
+                const response = await fetch(`api.php?action=${endpoint}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: JSON.stringify({ cart_id: cartId, quantity }) });
+                const result = await response.json();
+                if (!response.ok || !result.success) alert(result.message || 'Unable to update the cart.');
+                await loadDatabaseCart();
+            }, true);
+
+            document.querySelectorAll('.add-btn').forEach((button) => button.addEventListener('click', async (event) => {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                const response = await fetch('api.php?action=cart_add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: JSON.stringify({ product_id: Number(button.dataset.productId), quantity: 1 }) });
+                const result = await response.json();
+                if (result.login_required) { window.location.href = 'Login.php?return=Cart.html'; return; }
+                if (!response.ok || !result.success) alert(result.message || 'Unable to add the product.');
+                await loadDatabaseCart();
+            }, true));
+
+            checkoutButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopImmediatePropagation();
+                if (databaseItems.length) window.location.href = 'Payment.php';
+            }, true);
+            loadDatabaseCart().catch((error) => { container.innerHTML = `<div class="empty-cart"><h2>Cart unavailable</h2><p>${clean(error.message)}</p></div>`; checkoutButton.disabled = true; });
+        })();
+    </script>
+</body>
+</html>

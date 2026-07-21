@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOOO - Register Products &amp; Services</title>
+    <link rel="stylesheet" href="site-pages.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <a class="site-logo" href="main page.php" aria-label="LOOO home"><img src="logo.png" alt="LOOO Logo"></a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <div class="nav-item"><a href="Products.html">Products</a><div class="dropdown-menu"><a href="Products.html?brand=Acer">Acer</a><a href="Products.html?brand=Asus">Asus</a><a href="Products.html?brand=Dell">Dell</a><a href="Products.html?brand=HP">HP</a><a href="Products.html?brand=Lenovo">Lenovo</a><a href="Products.html?brand=MSI">MSI</a></div></div>
+                <div class="nav-item"><a href="Customer Services.php">Services</a><div class="dropdown-menu"><a href="Customer Services.php">Customer Services</a><a href="Support Services.html">Support Services</a></div></div>
+                <div class="nav-item"><a class="active" href="Register Products Services.html" aria-current="page">Support</a><div class="dropdown-menu"><a href="Extend Device Warranty.php">Extend Device Warranty</a><a href="Register Products Services.html">Register Products &amp; Services</a></div></div>
+                <div class="nav-item"><a href="rewards.html">Deals</a><div class="dropdown-menu"><a href="rewards.html">My Rewards</a><a href="Student Discounts.html">Student Discounts</a></div></div>
+            </nav>
+            <div class="header-actions"><a class="login-link" href="Login.php">Login / Sign in</a><a class="icon-link" href="rewards.html" aria-label="Rewards">🎁</a><a class="icon-link" href="Cart.html" aria-label="Cart">🛒</a></div>
+        </div>
+        <div class="header-search"><a href="Products.html"><span>What are you looking for?</span><span aria-hidden="true">⌕</span></a></div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="eyebrow">Product Registration</div>
+            <h1>Keep your product details in one place</h1>
+            <p>Register an eligible LOOO purchase so its product, purchase and ownership details are ready when you need support.</p>
+            <div class="hero-actions"><a class="primary-btn" href="#registrationForm">Register now</a><a class="secondary-btn" href="Extend Device Warranty.php">Explore extended warranty</a></div>
+        </section>
+
+        <section class="page-section">
+            <div class="section-heading"><h2>Why register?</h2><p>A complete product record makes future support requests easier.</p></div>
+            <div class="card-grid">
+                <article class="info-card"><div class="card-icon" aria-hidden="true">01</div><h3>Faster identification</h3><p>Keep the model, serial number and purchase date together for future reference.</p></article>
+                <article class="info-card"><div class="card-icon" aria-hidden="true">02</div><h3>Warranty readiness</h3><p>Have the information needed when checking standard or extended warranty options.</p></article>
+                <article class="info-card"><div class="card-icon" aria-hidden="true">03</div><h3>Smoother support</h3><p>Give the support team accurate product details from the start of a request.</p></article>
+            </div>
+        </section>
+
+        <section class="page-section alt" id="registrationForm">
+            <div class="section-inner split-layout">
+                <div class="split-copy"><div class="eyebrow">Before you begin</div><h2>Have your purchase details ready</h2><p>You can usually find the serial number on the device label, original packaging or system information screen.</p><ul class="check-list"><li>Product brand and model</li><li>Serial number or service tag</li><li>Purchase date and invoice number</li><li>Owner contact details</li></ul></div>
+                <form class="form-card" id="productRegistrationForm">
+                    <h2>Register a product</h2><p class="form-intro">Enter the details as they appear on the product and purchase record.</p>
+                    <div class="form-grid">
+                        <div class="form-group"><label for="registerName">Owner name</label><input id="registerName" name="registerName" required autocomplete="name"></div>
+                        <div class="form-group"><label for="registerEmail">Email address</label><input id="registerEmail" name="registerEmail" type="email" required autocomplete="email"></div>
+                        <div class="form-group"><label for="registerPhone">Phone number</label><input id="registerPhone" name="registerPhone" type="tel" autocomplete="tel"></div>
+                        <div class="form-group"><label for="warrantyType">Warranty type</label><select id="warrantyType" name="warrantyType" required><option value="basic">Basic</option><option value="extended">Extended</option><option value="premium">Premium</option></select></div>
+                        <div class="form-group"><label for="registerBrand">Brand</label><select id="registerBrand" name="registerBrand" required><option value="">Choose a brand</option><option>Acer</option><option>Asus</option><option>Dell</option><option>HP</option><option>Lenovo</option><option>MSI</option><option>Other</option></select></div>
+                        <div class="form-group"><label for="registerCategory">Product type</label><select id="registerCategory" name="registerCategory" required><option value="">Choose a type</option><option>Laptop</option><option>Desktop or all-in-one</option><option>Monitor</option><option>Accessory</option><option>Other</option></select></div>
+                        <div class="form-group"><label for="registerModel">Model</label><input id="registerModel" name="registerModel" required></div>
+                        <div class="form-group"><label for="registerSerial">Serial number</label><input id="registerSerial" name="registerSerial" required></div>
+                        <div class="form-group"><label for="purchaseDate">Purchase date</label><input id="purchaseDate" name="purchaseDate" type="date" required></div>
+                        <div class="form-group"><label for="invoiceNumber">Invoice number</label><input id="invoiceNumber" name="invoiceNumber" required></div>
+                        <div class="form-group full"><label for="registrationNotes">Additional notes</label><textarea id="registrationNotes" name="registrationNotes" placeholder="Optional product or purchase information"></textarea></div>
+                    </div>
+                    <div class="form-actions"><button class="primary-btn" type="submit">Register product</button><a class="secondary-btn" href="Support Services.html">Support services</a></div>
+                    <div class="success-message" id="registrationSuccess" role="status">Your product registration has been saved.</div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer"><div class="social-icons"><a href="#" aria-label="Facebook"><img src="facebook.png" alt=""></a><a href="#" aria-label="YouTube"><img src="youtube.png" alt=""></a><a href="#" aria-label="WhatsApp"><img src="whatsapp.png" alt=""></a></div><p>LOOO Electronics &amp; Computers</p></footer>
+    <script>
+        document.getElementById('purchaseDate').max = new Date().toISOString().split('T')[0];
+        document.querySelectorAll('a[href="#"]').forEach((link) => link.addEventListener('click', (event) => event.preventDefault()));
+    </script>
+    <script>
+        document.getElementById('productRegistrationForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const form = event.currentTarget;
+            const button = form.querySelector('button[type="submit"]');
+            button.disabled = true;
+            const response = await fetch('api.php?action=product_registration', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: JSON.stringify(Object.fromEntries(new FormData(form))) });
+            const result = await response.json();
+            if (result.success) { const message = document.getElementById('registrationSuccess'); message.textContent = result.message; message.classList.add('show'); form.reset(); }
+            else alert(result.message || 'The registration could not be submitted.');
+            button.disabled = false;
+        });
+    </script>
+</body>
+</html>

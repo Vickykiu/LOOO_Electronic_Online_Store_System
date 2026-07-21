@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOOO - Student Discounts</title>
+    <link rel="stylesheet" href="site-pages.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-top">
+            <a class="site-logo" href="main page.php" aria-label="LOOO home"><img src="logo.png" alt="LOOO Logo"></a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <div class="nav-item"><a href="Products.html">Products</a><div class="dropdown-menu"><a href="Products.html?brand=Acer">Acer</a><a href="Products.html?brand=Asus">Asus</a><a href="Products.html?brand=Dell">Dell</a><a href="Products.html?brand=HP">HP</a><a href="Products.html?brand=Lenovo">Lenovo</a><a href="Products.html?brand=MSI">MSI</a></div></div>
+                <div class="nav-item"><a href="Customer Services.php">Services</a><div class="dropdown-menu"><a href="Customer Services.php">Customer Services</a><a href="Support Services.html">Support Services</a></div></div>
+                <div class="nav-item"><a href="Extend Device Warranty.php">Support</a><div class="dropdown-menu"><a href="Extend Device Warranty.php">Extend Device Warranty</a><a href="Register Products Services.html">Register Products &amp; Services</a></div></div>
+                <div class="nav-item"><a class="active" href="Student Discounts.html" aria-current="page">Deals</a><div class="dropdown-menu"><a href="rewards.html">My Rewards</a><a href="Student Discounts.html">Student Discounts</a></div></div>
+            </nav>
+            <div class="header-actions"><a class="login-link" href="Login.php">Login / Sign in</a><a class="icon-link" href="rewards.html" aria-label="Rewards">🎁</a><a class="icon-link" href="Cart.html" aria-label="Cart">🛒</a></div>
+        </div>
+        <div class="header-search"><a href="Products.html"><span>What are you looking for?</span><span aria-hidden="true">⌕</span></a></div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="eyebrow">Student Discounts</div>
+            <h1>Technology that supports the way you learn</h1>
+            <p>Eligible students can request access to education pricing on selected products available through LOOO.</p>
+            <div class="hero-actions"><a class="primary-btn" href="#studentForm">Verify student status</a><a class="secondary-btn" href="Products.html">Browse products</a></div>
+        </section>
+
+        <section class="page-section">
+            <div class="section-heading"><h2>Built for study, projects and everything between</h2><p>Student pricing helps eligible learners choose technology for daily academic work.</p></div>
+            <div class="card-grid">
+                <article class="info-card"><div class="card-icon" aria-hidden="true">01</div><h3>Selected laptops</h3><p>Explore portable options for lectures, assignments, creative work and collaboration.</p></article>
+                <article class="info-card"><div class="card-icon" aria-hidden="true">02</div><h3>Study accessories</h3><p>Find selected monitors, docks and accessories for a more productive study space.</p></article>
+                <article class="info-card"><div class="card-icon" aria-hidden="true">03</div><h3>Verified access</h3><p>Use current education details so available student offers can be shown accurately.</p></article>
+            </div>
+        </section>
+
+        <section class="page-section alt">
+            <div class="section-inner"><div class="section-heading"><h2>How to access student pricing</h2><p>Verification is simple and keeps education offers available to eligible learners.</p></div><div class="steps"><div class="step"><h3>Enter your details</h3><p>Provide your name, institution and current student email address.</p></div><div class="step"><h3>Confirm eligibility</h3><p>Submit current enrolment details for review before access is approved.</p></div><div class="step"><h3>Shop eligible products</h3><p>Review the selected products and education pricing available at that time.</p></div></div></div>
+        </section>
+
+        <section class="page-section" id="studentForm">
+            <div class="split-layout">
+                <div class="split-copy"><div class="eyebrow">Student verification</div><h2>Confirm your current enrolment</h2><p>Offers vary by product and availability. Verification does not guarantee a discount on every item.</p><ul class="check-list"><li>Use your current institution name</li><li>Provide an active student email when available</li><li>Enter the expected graduation year</li><li>Review offer terms before purchase</li></ul></div>
+                <form class="form-card" id="studentDiscountForm">
+                    <h2>Request student access</h2><p class="form-intro">Enter your current education details.</p>
+                    <div class="form-grid">
+                        <div class="form-group"><label for="firstName">First name</label><input id="firstName" name="firstName" required autocomplete="given-name"></div>
+                        <div class="form-group"><label for="lastName">Last name</label><input id="lastName" name="lastName" required autocomplete="family-name"></div>
+                        <div class="form-group"><label for="studentEmail">Student email</label><input id="studentEmail" name="studentEmail" type="email" required autocomplete="email"></div>
+                        <div class="form-group"><label for="studentPhone">Phone number</label><input id="studentPhone" name="studentPhone" type="tel" autocomplete="tel"></div>
+                        <div class="form-group full"><label for="institution">Institution</label><input id="institution" name="institution" required></div>
+                        <div class="form-group"><label for="studentId">Student ID</label><input id="studentId" name="studentId" required></div>
+                        <div class="form-group"><label for="course">Course</label><input id="course" name="course" required></div>
+                        <div class="form-group"><label for="studyLevel">Study level</label><select id="studyLevel" name="studyLevel" required><option value="">Choose a level</option><option>Foundation or pre-university</option><option>Diploma</option><option>Undergraduate</option><option>Postgraduate</option><option>Other</option></select></div>
+                        <div class="form-group"><label for="graduationYear">Expected graduation year</label><input id="graduationYear" name="graduationYear" type="number" min="2026" max="2040" required></div>
+                        <div class="form-group full"><label for="studentAddress">Address</label><input id="studentAddress" name="studentAddress" autocomplete="street-address"></div>
+                        <div class="form-group"><label for="studentCity">City</label><input id="studentCity" name="studentCity" autocomplete="address-level2"></div>
+                        <div class="form-group"><label for="studentPostalCode">Postcode</label><input id="studentPostalCode" name="studentPostalCode" autocomplete="postal-code"></div>
+                        <div class="form-group full"><label for="studyUse">What will you use the device for?</label><textarea id="studyUse" name="studyUse" placeholder="Optional: coursework, design, programming, research or other study needs"></textarea></div>
+                    </div>
+                    <div class="form-actions"><button class="primary-btn" type="submit">Submit verification</button><a class="secondary-btn" href="rewards.html">View rewards</a></div>
+                    <div class="success-message" id="studentSuccess" role="status">Your student verification request has been recorded. Available education offers can be reviewed after eligibility is confirmed.</div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer"><div class="social-icons"><a href="#" aria-label="Facebook"><img src="facebook.png" alt=""></a><a href="#" aria-label="YouTube"><img src="youtube.png" alt=""></a><a href="#" aria-label="WhatsApp"><img src="whatsapp.png" alt=""></a></div><p>LOOO Electronics &amp; Computers</p></footer>
+    <script>
+        document.getElementById('graduationYear').min = String(new Date().getFullYear());
+        document.querySelectorAll('a[href="#"]').forEach((link) => link.addEventListener('click', (event) => event.preventDefault()));
+    </script>
+    <script>
+        document.getElementById('studentDiscountForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const form = event.currentTarget;
+            const button = form.querySelector('button[type="submit"]');
+            button.disabled = true;
+            const response = await fetch('api.php?action=student_application', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'same-origin', body: JSON.stringify(Object.fromEntries(new FormData(form))) });
+            const result = await response.json();
+            if (result.success) { const message = document.getElementById('studentSuccess'); message.textContent = result.message; message.classList.add('show'); form.reset(); }
+            else alert(result.message || 'The application could not be submitted.');
+            button.disabled = false;
+        });
+    </script>
+</body>
+</html>
